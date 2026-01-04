@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var firstDictionary = [String : String]()
+    @State var dictionaryCounter = 0
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        // Make a var for # of dictionaries, start at 0
+        
+        // Make a function that generates 1 more dictionary
+        
+        // Add a button to add the function inside
+        
+        Button("Add more dictonaries/flash cards") {
+            print("Starting \(firstDictionary.count)")
+            firstDictionary = [:]
+            print("Ending \(firstDictionary.count)")
         }
-        .padding()
     }
 }
 
