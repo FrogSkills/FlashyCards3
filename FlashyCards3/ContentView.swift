@@ -8,21 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var firstDictionary = [String : String]()
-    @State var dictionaryCounter = 0
+    
+    @State var exampleArray = ["Yes", "No", "Maybe"]
+    
     
     var body: some View {
-        
-        // Make a var for # of dictionaries, start at 0
         
         // Make a function that generates 1 more dictionary
         
         // Add a button to add the function inside
         
-        Button("Add more dictonaries/flash cards") {
-            print("Starting \(firstDictionary.count)")
-            firstDictionary = [:]
-            print("Ending \(firstDictionary.count)")
+        // Ternary operator, if no word is inputed add a symbol or something.
+        
+        // List View, join both textfields in 1 section?
+        // Add a trashcan to the right, or just swipe.
+        
+        NavigationStack {
+            List {
+                ForEach(exampleArray, id: \.self) { term in
+                    NavigationLink {
+                            Set(setTitle: term)
+                        } label: {
+                            Text(term)
+                        }
+                }
+            }
+            .navigationTitle("Flash Cards")
         }
     }
 }

@@ -8,11 +8,36 @@
 import SwiftUI
 
 struct Set: View {
+    @State var setTitle : String
+    @State var practiceVar = ["1", "2"]
+    @State private var addCardsButton = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                ForEach(practiceVar, id: \.self) { name in
+                    Text(name)
+                }
+            }
+            .sheet(isPresented: $addCardsButton) {
+                NavigationStack {
+                    AddingASet()
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        addCardsButton = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+            //TODO: Change the title name to the incoming value.
+            .navigationTitle(setTitle)
+        }
     }
 }
 
 #Preview {
-    Set()
+    Set(setTitle: "")
 }
